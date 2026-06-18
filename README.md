@@ -1,35 +1,29 @@
-# Maverick Journey — Fit Final Trainer Dashboard
+# Maverick Journey — Client Section Fixed Trainer Dashboard
 
-This version fixes the font sizing, spacing, and layout consistency so the dashboard feels more organized when it opens.
+This version keeps the screenshot-style dashboard but fixes the Clients section.
 
-## What was fixed
+## Clients section now includes
 
-- Consistent font scale across the whole dashboard
-- Smaller sidebar typography
-- Smaller top header
-- Compact metric cards
-- Smaller center intelligence/orbit panel
-- Tighter card padding and grid gaps
-- Better table row sizing
-- Lower sections fit cleaner below the main row
-- Real image URLs still included for uploads, meals, progress, documents, and client photos
-- Working side tabs and clickable client profiles
-
-## Folder structure
-
-```text
-index.html
-README.md
-package.json
-build.mjs
-vercel.json
-src/
-  styles.css
-  app.js
-  data/
-    clients.js
-public/
-```
+- Clean client list
+- Search/filter bar
+- Clickable client rows
+- Full selected client profile
+- Payment
+- Sleep
+- Nutrition
+- Momentum
+- Check-in status
+- Risk status
+- AI trainer brief
+- Recommended trainer actions
+- Client-facing dashboard preview
+- Original questionnaire answers
+- Slack communication
+- Reminders
+- Real upload images
+- Wearable data preview
+- Nutrition fields
+- Workout table
 
 ## Vercel settings
 

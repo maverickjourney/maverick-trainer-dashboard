@@ -61,25 +61,96 @@
     </div>
   </section>
 
+  
   <section id="clientsPanel" class="panel">
-    <div class="profileGrid">
-      <div class="card"><div class="cardTitle"><h3>Clients</h3><button class="view">Add Filter</button></div><div id="clientCards" class="clientCards"></div></div>
+    <div class="clientsShell">
       <div class="card">
-        <div class="clientHead"><img id="pAvatar" class="avatar" style="width:58px;height:58px"><div><h2 id="pName" style="margin:0">Sarah Mitchell</h2><p id="pMeta" class="muted" style="margin:3px 0 0"></p></div><span id="pStatus" class="pill yellow" style="margin-left:auto"></span></div>
-        <div id="pStats" class="grid cols4" style="margin-top:12px"></div>
-        <div class="subnav"><button class="active" onclick="showSub('overviewSub',this)">Overview</button><button onclick="showSub('questionsSub',this)">Questionnaire</button><button onclick="showSub('slackSub',this)">Slack</button><button onclick="showSub('remindersSub',this)">Reminders</button><button onclick="showSub('uploadsSub',this)">Uploads</button><button onclick="showSub('nutritionSub',this)">Nutrition</button><button onclick="showSub('workoutsSub',this)">Workouts</button></div>
-        <div id="overviewSub" class="subpanel active"><p id="pBrief" class="muted"></p><div id="pActions"></div></div>
-        <div id="questionsSub" class="subpanel"><table class="table"><thead><tr><th>Question</th><th>Original Answer</th></tr></thead><tbody id="pQuestions"></tbody></table></div>
+        <div class="cardTitle"><h3>Clients</h3><button class="view">Add Filter</button></div>
+        <div class="clientSearchBar">
+          <input placeholder="Search clients, goals, alerts..." />
+          <button>Filter</button>
+        </div>
+        <div id="clientCards" class="clientList"></div>
+      </div>
+
+      <div class="card">
+        <div class="profileHero">
+          <img id="pAvatar" class="avatar" alt="">
+          <div>
+            <h2 id="pName">Sarah Mitchell</h2>
+            <p id="pMeta"></p>
+          </div>
+          <span id="pStatus" class="pill yellow" style="margin-left:auto"></span>
+        </div>
+
+        <div id="pStats" class="profileTopGrid"></div>
+
+        <div class="subnav">
+          <button class="active" onclick="showSub('overviewSub',this)">Overview</button>
+          <button onclick="showSub('clientDashSub',this)">Client Dashboard</button>
+          <button onclick="showSub('questionsSub',this)">Questionnaire</button>
+          <button onclick="showSub('slackSub',this)">Slack</button>
+          <button onclick="showSub('remindersSub',this)">Reminders</button>
+          <button onclick="showSub('uploadsSub',this)">Uploads</button>
+          <button onclick="showSub('wearablesSub',this)">Wearables</button>
+          <button onclick="showSub('nutritionSub',this)">Nutrition</button>
+          <button onclick="showSub('workoutsSub',this)">Workouts</button>
+        </div>
+
+        <div id="overviewSub" class="subpanel active">
+          <div class="profileBodyGrid">
+            <div>
+              <h4 class="profileSectionTitle">AI Trainer Brief</h4>
+              <p id="pBrief" class="muted"></p>
+              <h4 class="profileSectionTitle">Recommended Trainer Actions</h4>
+              <div id="pActions" class="aiActionList"></div>
+            </div>
+            <div>
+              <h4 class="profileSectionTitle">Latest Uploads</h4>
+              <div class="imageStrip">
+                <div class="realPhoto" style="background-image:url('https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=500&q=80')"><span>Progress</span></div>
+                <div class="realPhoto" style="background-image:url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80')"><span>Meal</span></div>
+                <div class="realPhoto" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500&q=80')"><span>Document</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="clientDashSub" class="subpanel">
+          <h4 class="profileSectionTitle">What the client sees on their dashboard</h4>
+          <div id="clientDashboardPreview" class="miniDashboard"></div>
+          <p class="muted" style="margin-top:10px">This preview shows how the same Slack/check-in data can also update the client-facing dashboard: tasks, coach messages, progress, reminders, uploads, and weekly reports.</p>
+        </div>
+
+        <div id="questionsSub" class="subpanel">
+          <table class="table"><thead><tr><th>Question</th><th>Original Answer</th></tr></thead><tbody id="pQuestions"></tbody></table>
+        </div>
+
         <div id="slackSub" class="subpanel"><div id="pSlack" class="phone"></div></div>
-        <div id="remindersSub" class="subpanel"><table class="table"><thead><tr><th>When</th><th>Reminder</th><th>Channel</th><th>Status</th></tr></thead><tbody id="pReminders"></tbody></table></div>
+
+        <div id="remindersSub" class="subpanel">
+          <table class="table"><thead><tr><th>When</th><th>Reminder</th><th>Channel</th><th>Status</th></tr></thead><tbody id="pReminders"></tbody></table>
+        </div>
+
         <div id="uploadsSub" class="subpanel"><div id="pUploads" class="photoGrid"></div></div>
-        <div id="nutritionSub" class="subpanel"><table class="table"><tbody id="pNutrition"></tbody></table></div>
-        <div id="workoutsSub" class="subpanel"><table class="table"><thead><tr><th>Day</th><th>Workout</th><th>Status</th><th>Notes</th></tr></thead><tbody id="pWorkouts"></tbody></table></div>
+
+        <div id="wearablesSub" class="subpanel">
+          <h4 class="profileSectionTitle">Wearable / Terra / ROOK / Apple Health style data</h4>
+          <div id="pWearables" class="wearableGrid"></div>
+        </div>
+
+        <div id="nutritionSub" class="subpanel">
+          <table class="table"><tbody id="pNutrition"></tbody></table>
+        </div>
+
+        <div id="workoutsSub" class="subpanel">
+          <table class="table"><thead><tr><th>Day</th><th>Workout</th><th>Status</th><th>Notes</th></tr></thead><tbody id="pWorkouts"></tbody></table>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="messagesPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Messages</h3></div><div class="feedLine"><strong>Messages feed lives on dashboard home.</strong></div></div></section>
+<section id="messagesPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Messages</h3></div><div class="feedLine"><strong>Messages feed lives on dashboard home.</strong></div></div></section>
   <section id="programsPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Programs</h3></div><p class="muted">Program planning, AI workout updates, injury modifications, and phase tracking.</p></div></section>
   <section id="nutritionPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Nutrition</h3></div><div class="photoGrid"><div class="realPhoto" style="background-image:url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80')"><span>Breakfast</span></div><div class="realPhoto" style="background-image:url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80')"><span>Lunch</span></div><div class="realPhoto" style="background-image:url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=900&q=80')"><span>Dinner</span></div></div></div></section>
   <section id="workoutsPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Workouts</h3></div><p class="muted">Workout completion, soreness, progression, and AI modifications.</p></div></section>
