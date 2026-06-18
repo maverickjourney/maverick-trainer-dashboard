@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maverick Journey | Trainer Dashboard</title>
+<link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="logo"><div class="logoMark"></div><div class="logoText"><strong>MAVERICK</strong><small>JOURNEY</small></div></div>
+  <nav class="nav">
+    <button class="active" onclick="showTab('dashboardPanel',this)"><span class="navIcon">⌂</span>Dashboard</button>
+    <button onclick="showTab('clientsPanel',this)"><span class="navIcon">☷</span>Clients</button>
+    <button onclick="showTab('messagesPanel',this)"><span class="navIcon">✉</span>Messages <span class="badge">8</span></button>
+    <button onclick="showTab('programsPanel',this)"><span class="navIcon">▣</span>Programs</button>
+    <button onclick="showTab('nutritionPanel',this)"><span class="navIcon">♨</span>Nutrition</button>
+    <button onclick="showTab('workoutsPanel',this)"><span class="navIcon">⌁</span>Workouts</button>
+    <button onclick="showTab('checkinsPanel',this)"><span class="navIcon">☑</span>Check-Ins</button>
+    <button onclick="showTab('paymentsPanel',this)"><span class="navIcon">$</span>Payments</button>
+    <button onclick="showTab('uploadsPanel',this)"><span class="navIcon">⌂</span>Uploads</button>
+    <button onclick="showTab('insightsPanel',this)"><span class="navIcon">✧</span>AI Insights</button>
+    <button onclick="showTab('reportsPanel',this)"><span class="navIcon">▤</span>Reports</button>
+    <button onclick="showTab('settingsPanel',this)"><span class="navIcon">⚙</span>Settings</button>
+  </nav>
+  <div class="coach"><img src="https://randomuser.me/api/portraits/men/35.jpg"><div><strong>Mark Reynolds</strong><small>Head Coach</small></div><span class="online"></span></div>
+</aside>
+<main class="main">
+  <div class="top">
+    <div><div class="crumb">⚡ Maverick / Trainer Command Center</div><h1>Welcome back, Mark 👋</h1><p>Here’s your overview of clients, workflows, payments, reminders, alerts, and AI insights.</p></div>
+    <div class="topActions"><div class="statusPill"><span class="dot"></span>AI Agents 8/8 Active</div><div class="statusPill">♟ Slack Secure 🔒</div><div class="statusPill">⟳ Terra Sync Live〽</div><button class="addBtn">+ Add Client</button></div>
+  </div>
+
+  <section id="dashboardPanel" class="panel active">
+    <div class="dash">
+      <div class="stack">
+        <div class="card metric"><div class="topline"><div class="metricIcon">♧</div><div class="label">Total Clients</div></div><div class="metricNum">38</div><div class="metricSub">+4 this month</div><svg class="spark" viewBox="0 0 120 40"><path d="M2 30 L14 29 L24 24 L34 25 L44 18 L52 21 L59 12 L66 14 L73 25 L82 13 L93 20 L101 9 L111 24 L118 16"/></svg></div>
+        <div class="card metric red"><div class="topline"><div class="metricIcon">⚠</div><div class="label">AI Alerts</div></div><div class="metricNum">5</div><div class="metricSub">High priority</div><svg class="spark" viewBox="0 0 120 40"><path d="M2 30 L12 31 L23 25 L34 29 L44 19 L56 20 L66 14 L76 24 L86 7 L96 26 L108 23 L118 24"/></svg></div>
+        <div class="card metric"><div class="topline"><div class="metricIcon">🧠</div><div class="label">AI Memory</div></div><div class="metricNum">142</div><div class="metricSub">Client patterns tracked</div><svg class="spark" viewBox="0 0 120 40"><path d="M2 32 L14 30 L24 22 L34 24 L44 15 L53 20 L60 12 L70 28 L80 16 L91 25 L101 10 L109 26 L118 18"/></svg></div>
+      </div>
+      <div class="card intel">
+        <div class="intelLabel">Maverick Intelligence</div><h2>Autonomous Trainer Operating System</h2><p>AI-powered orchestration of your coaching business.</p>
+        <div class="orbit"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"><b>MJ</b></div><span class="node n1"></span><span class="node n2"></span><span class="node n3"></span><span class="node n4"></span><span class="node n5"></span><span class="node n6"></span><div class="orbitText ot1"><strong>Workflow</strong><span>Automated client<br>workflows & tasks</span></div><div class="orbitText ot2"><strong>Billing</strong><span>Payments, invoices<br>& collections</span></div><div class="orbitText ot3"><strong>Reporting</strong><span>Analytics & performance<br>insights</span></div><div class="orbitText ot4"><strong>Communication</strong><span>Messages, alerts &<br>reminders</span></div></div>
+      </div>
+      <div class="stack">
+        <div class="card sideMetric"><div class="label">Check-ins Due</div><div class="miniRing"><i></i><i></i><i></i><i></i></div><div class="metricNum">7</div><div class="metricSub">Needs attention</div></div>
+        <div class="card sideMetric"><div class="label">Payments Due</div><div class="miniRing greenDots"><i></i><i></i><i></i><i></i></div><div class="metricNum">$2,450</div><div class="metricSub">3 clients</div></div>
+        <div class="card sideMetric"><div class="label">Notifications</div><div class="miniRing goldDots"><i></i><i></i><i></i><i></i></div><div class="metricNum">8</div><div class="metricSub">4 unread</div></div>
+      </div>
+    </div>
+    <div class="lower">
+      <div class="card"><div class="cardTitle"><h3>🔥 AI Priority Alerts</h3><button class="view">View All</button></div><div id="priority"></div></div>
+      <div class="card"><div class="cardTitle"><h3>Client Overview</h3><button class="view">View All Clients</button></div><table class="table"><thead><tr><th>Client</th><th>Program</th><th>Adherence</th><th>Check-in</th><th>Action</th></tr></thead><tbody id="overviewRows"></tbody></table></div>
+      <div class="card"><div class="cardTitle"><h3>Today's Reminders</h3><button class="view">View All</button></div><div class="checkrow"><label><input type="checkbox" checked> Review 7 check-ins</label><span>5 clients</span></div><div class="checkrow"><label><input type="checkbox" checked> Progress photos due</label><span>3 clients</span></div><div class="checkrow"><label><input type="checkbox"> Program updates</label><span>2 clients</span></div><div class="checkrow"><label><input type="checkbox"> Nutrition reviews</label><span>4 clients</span></div><div class="checkrow"><label><input type="checkbox"> Weekly report</label><span>1 report</span></div></div>
+      <div class="card"><div class="cardTitle"><h3>Revenue Overview</h3><button class="view">This Month⌄</button></div><div class="revNum">$8,240</div><div class="metricSub">+18% vs last month</div><div class="bars"><span style="height:35%"></span><span style="height:50%"></span><span style="height:36%"></span><span style="height:58%"></span><span style="height:52%"></span><span style="height:35%"></span><span style="height:60%"></span><span style="height:59%"></span><span style="height:62%"></span><span style="height:82%"></span><span style="height:66%"></span></div></div>
+    </div>
+    <div class="bottom">
+      <div class="card"><div class="cardTitle"><h3>Slack Communication Feed</h3></div><div id="feed"></div></div>
+      <div class="card"><div class="cardTitle"><h3>✦ AI Recommendations</h3></div><div class="rec"><span class="recIcon">✧</span><strong>Review John Smith’s recovery plan</strong><span>›</span></div><div class="rec"><span class="recIcon">▣</span><strong>Send Sarah Mitchell updated protein target</strong><span>›</span></div><div class="rec"><span class="recIcon">▤</span><strong>Generate weekly report for Phase 2 clients</strong><span>›</span></div></div>
+      <div class="card"><div class="cardTitle"><h3>Recent Uploads</h3><button class="view">View All</button></div><div id="uploads" class="uploadGrid"></div></div>
+    </div>
+  </section>
+
+  <section id="clientsPanel" class="panel">
+    <div class="profileGrid">
+      <div class="card"><div class="cardTitle"><h3>Clients</h3><button class="view">Add Filter</button></div><div id="clientCards" class="clientCards"></div></div>
+      <div class="card">
+        <div class="clientHead"><img id="pAvatar" class="avatar" style="width:58px;height:58px"><div><h2 id="pName" style="margin:0">Sarah Mitchell</h2><p id="pMeta" class="muted" style="margin:3px 0 0"></p></div><span id="pStatus" class="pill yellow" style="margin-left:auto"></span></div>
+        <div id="pStats" class="grid cols4" style="margin-top:12px"></div>
+        <div class="subnav"><button class="active" onclick="showSub('overviewSub',this)">Overview</button><button onclick="showSub('questionsSub',this)">Questionnaire</button><button onclick="showSub('slackSub',this)">Slack</button><button onclick="showSub('remindersSub',this)">Reminders</button><button onclick="showSub('uploadsSub',this)">Uploads</button><button onclick="showSub('nutritionSub',this)">Nutrition</button><button onclick="showSub('workoutsSub',this)">Workouts</button></div>
+        <div id="overviewSub" class="subpanel active"><p id="pBrief" class="muted"></p><div id="pActions"></div></div>
+        <div id="questionsSub" class="subpanel"><table class="table"><thead><tr><th>Question</th><th>Original Answer</th></tr></thead><tbody id="pQuestions"></tbody></table></div>
+        <div id="slackSub" class="subpanel"><div id="pSlack" class="phone"></div></div>
+        <div id="remindersSub" class="subpanel"><table class="table"><thead><tr><th>When</th><th>Reminder</th><th>Channel</th><th>Status</th></tr></thead><tbody id="pReminders"></tbody></table></div>
+        <div id="uploadsSub" class="subpanel"><div id="pUploads" class="photoGrid"></div></div>
+        <div id="nutritionSub" class="subpanel"><table class="table"><tbody id="pNutrition"></tbody></table></div>
+        <div id="workoutsSub" class="subpanel"><table class="table"><thead><tr><th>Day</th><th>Workout</th><th>Status</th><th>Notes</th></tr></thead><tbody id="pWorkouts"></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="messagesPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Messages</h3></div><div class="feedLine"><strong>Messages feed lives on dashboard home.</strong></div></div></section>
+  <section id="programsPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Programs</h3></div><p class="muted">Program planning, AI workout updates, injury modifications, and phase tracking.</p></div></section>
+  <section id="nutritionPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Nutrition</h3></div><div class="photoGrid"><div class="realPhoto" style="background-image:url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80')"><span>Breakfast</span></div><div class="realPhoto" style="background-image:url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80')"><span>Lunch</span></div><div class="realPhoto" style="background-image:url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=900&q=80')"><span>Dinner</span></div></div></div></section>
+  <section id="workoutsPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Workouts</h3></div><p class="muted">Workout completion, soreness, progression, and AI modifications.</p></div></section>
+  <section id="checkinsPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Check-ins</h3></div><p class="muted">Weight, sleep, water, mood, soreness, and accountability status.</p></div></section>
+  <section id="paymentsPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Payments</h3></div><p class="muted">Payments due, revenue, subscriptions, and retention risk.</p></div></section>
+  <section id="uploadsPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Uploads</h3></div><div class="photoGrid"><div class="realPhoto" style="background-image:url(\'https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=500&q=80\')"><span>Progress photo</span></div><div class="realPhoto" style="background-image:url(\'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80\')"><span>Meal photo</span></div><div class="realPhoto" style="background-image:url(\'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500&q=80\')"><span>Bloodwork</span></div></div></div></section>
+  <section id="insightsPanel" class="panel"><div class="card"><div class="cardTitle"><h3>AI Insights</h3></div><p class="muted">Relationship intelligence, churn risk, injury risk, and coaching opportunities.</p></div></section>
+  <section id="reportsPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Reports</h3></div><p class="muted">Weekly reports, client summaries, and coach review packets.</p></div></section>
+  <section id="settingsPanel" class="panel"><div class="card"><div class="cardTitle"><h3>Settings</h3></div><p class="muted">AI tone, approval mode, alert sensitivity, integrations, and client rules.</p></div></section>
+</main>
+</div>
+<script type="module" src="/src/app.js"></script>
+</body>
+</html>
